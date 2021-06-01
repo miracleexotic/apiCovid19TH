@@ -32,6 +32,10 @@ def getDetail():
     # print([{**resultDay, **result_total, **result_new, **result_serious, **result_deaths}])
     return [{**resultDay, **result_total, **result_new, **result_serious, **result_deaths}]
 
+@app.route('/')
+def get_api():
+    return "api for use in mission built from web scraping", 200
+
 @app.route('/api/covid19-TH', methods=['GET'])
 def get_api():
     return jsonify(getDetail()), 200
