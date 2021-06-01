@@ -34,7 +34,7 @@ def getDetail():
 
 @app.route('/api/covid19-TH', methods=['GET'])
 def get_api():
-    return jsonify(getDetail())
+    return jsonify(getDetail()), 200
 
 
 if __name__ == "__main__":
