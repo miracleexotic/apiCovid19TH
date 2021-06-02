@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from bs4 import BeautifulSoup
 import requests
+import time
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def getDetail():
     # print(soup.prettify())
 
     day = soup.find_all("div", {"class": "w3-padding mybg3 w3-round-large"})
-    resultDay = { "Day" : str(day[0]).split('">')[1][:-6], "Time" : str(day[1]).split('">At ')[1][:-6] }
+    resultDay = { "DayfromWeb" : str(day[0]).split('">')[1][:-6], "TimefromWeb" : str(day[1]).split('">At ')[1][:-6] }
     # print(resultDay)
     totalCase = soup.find_all("div", {"class": "header_blog mybg2"})
     result_total = { "total" : str(totalCase).split('">')[2][:-12] }
@@ -26,15 +27,17 @@ def getDetail():
     result_serious = { "Serious" : str(seriousCase[1]).split('">')[2][:-11] }
     # print(result_serious)
     deathsCase = soup.find_all("div", {"class": "mybg3"})
-    result_deaths = { "Deaths" : str(deathsCase[3]).split('">')[2][:-11] }
+    result_deaths = { "Deaths" : str(deathsCase[2]).split('">')[2][:-11] }
     # print(result_deaths)
 
-    # print([{**resultDay, **result_total, **result_new, **result_serious, **result_deaths}])
-    return [{**resultDay, **result_total, **result_new, **result_serious, **result_deaths}]
+    lst_time = time.gmtime(time.time() + 25200)
+    currentTime = { "currentTime" : time.strftime("%d %b %Y %H:%M:%S", lst_time) }
+    # print([{**resultDay, **result_total, **result_new, **result_serious, **result_deaths}]
+    return [{**resultDay, **result_total, **result_new, **result_serious, **result_deaths, **currentTime}]
 
 @app.route('/')
 def index():
-  return "<h1>Welcome to CodingX</h1>"
+  return "api use for mission \n[built from web scarping] >>> /api/covid19-TH"
 
 @app.route('/api/covid19-TH', methods=['GET'])
 def get_api():
@@ -42,7 +45,7 @@ def get_api():
 
 
 if __name__ == "__main__":
-    app.run(debug=False)
+    app.run(debug=True)
     # getDetail()
 
 
