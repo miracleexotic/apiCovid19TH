@@ -14,7 +14,7 @@
 : case ใหม่
 - Serious
 - TimefromWeb
-: เวลาที่อัพเดตจากเว็บ https://ddc.moph.go.th/viralpneumonia/eng/index.
+: เวลาที่อัพเดตจากเว็บ https://ddc.moph.go.th/viralpneumonia/eng/index.php
 - currentTime
 : เวลา ณ ปัจจุบัน ขณะเรียกใช้ api
 - total
