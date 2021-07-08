@@ -6,18 +6,18 @@
 
 ### Information
 **Note**: json data
-- DayfromWeb  
+- DayfromWeb
 : วันที่อัพเดตจากเว็บ https://ddc.moph.go.th/viralpneumonia/eng/index.php
-- Deaths      
+- Deaths
 : เสียชีวิต
-- New         
+- New
 : case ใหม่
-- Serious     
-- TimefromWeb 
+- Serious
+- TimefromWeb
 : เวลาที่อัพเดตจากเว็บ https://ddc.moph.go.th/viralpneumonia/eng/index.
-- currentTime 
+- currentTime
 : เวลา ณ ปัจจุบัน ขณะเรียกใช้ api
-- total      
+- total
 : ยอดรวม
 
 ### Used
